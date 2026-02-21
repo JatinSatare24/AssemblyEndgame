@@ -4,7 +4,6 @@ import { languages } from "./languages"
 export default function AssemblyEndgame() {
     const [currentWord, setCurrentWord] = useState("react")
     const [guessedLetters, setGuessedLetters] = useState([])
-    console.log(guessedLetters)
 
     const alphabet = "abcdefghijklmnopqrstuvwxyz"
 
