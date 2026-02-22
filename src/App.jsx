@@ -2,22 +2,7 @@ import { useState } from "react"
 import { clsx } from "clsx"
 import { languages } from "./languages"
 import { getFarewellText, getRandomWord } from "./utils"
-
-/**
- * Backlog:
- * 
- * ✅ Farewell messages in status section
- * ✅ Disable the keyboard when the game is over
- * ✅ Fix a11y issues
- * ✅ Choose a random word from a list of words
- * ✅ Make the New Game button reset the game
- * - Reveal what the word was if the user loses the game
- * - Confetti drop when the user wins
- * 
- * Challenge: Reveal the missing letters of the word if the user
- * loses the game. Style the missing letters to have the same red
- * color as the wrong letter keys.
- */
+import Confetti from "react-confetti"
 
 export default function AssemblyEndgame() {
     // State values
@@ -69,13 +54,17 @@ export default function AssemblyEndgame() {
         )
     })
 
-    const letterElements = currentWord.split("").map((letter, index) => (
-        <span
-            key={index}
-            style={{ backgroundColor: isGameLost && !guessedLetters.includes(letter) ? '#EC5D49' : '' }}>
-            {guessedLetters.includes(letter) ? letter.toUpperCase() : isGameLost ? letter.toUpperCase() : null}
-        </span>
-    ))
+    const letterElements = currentWord.split("").map((letter, index) => {
+        const shouldRevealLetter = isGameLost || guessedLetters.includes(letter)
+        const letterClassName = clsx(
+            isGameLost && !guessedLetters.includes(letter) && "missed-letter"
+        )
+        return (
+            <span key={index} className={letterClassName}>
+                {shouldRevealLetter ? letter.toUpperCase() : ""}
+            </span>
+        )
+    })
 
     const keyboardElements = alphabet.split("").map(letter => {
         const isGuessed = guessedLetters.includes(letter)
@@ -137,6 +126,13 @@ export default function AssemblyEndgame() {
 
     return (
         <main>
+            {
+                isGameWon &&
+                <Confetti
+                    recycle={false}
+                    numberOfPieces={2000}
+                />
+            }
             <header>
                 <h1>Assembly: Endgame</h1>
                 <p>Guess the word within 8 attempts to keep the
