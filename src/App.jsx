@@ -3,6 +3,19 @@ import { clsx } from "clsx"
 import { languages } from "./languages"
 import { getFarewellText } from "./utils"
 
+/**
+ * Backlog:
+ * 
+ * ✅ Farewell messages in status section
+ * - Disable the keyboard when the game is over
+ * - Fix a11y issues
+ * - Make the New Game button reset the game
+ * - Choose a random word from a list of words
+ * - Confetti drop when the user wins
+ * 
+ * Challenge: Disable the keyboard when the game is over
+ */
+
 export default function AssemblyEndgame() {
     // State values
     const [currentWord, setCurrentWord] = useState("react")
@@ -67,6 +80,7 @@ export default function AssemblyEndgame() {
                 className={className}
                 key={letter}
                 onClick={() => addGuessedLetter(letter)}
+                disabled={isGameOver}
             >
                 {letter.toUpperCase()}
             </button>
@@ -82,9 +96,7 @@ export default function AssemblyEndgame() {
     function renderGameStatus() {
         if (!isGameOver && isLastGuessIncorrect) {
             return (
-                <p
-                    className="farewell-message"
-                >
+                <p className="farewell-message">
                     {getFarewellText(languages[wrongGuessCount - 1].name)}
                 </p>
             )
@@ -97,7 +109,7 @@ export default function AssemblyEndgame() {
                     <p>Well done! 🎉</p>
                 </>
             )
-        }
+        } 
         if (isGameLost) {
             return (
                 <>
@@ -106,7 +118,7 @@ export default function AssemblyEndgame() {
                 </>
             )
         }
-
+        
         return null
     }
 
@@ -115,7 +127,7 @@ export default function AssemblyEndgame() {
             <header>
                 <h1>Assembly: Endgame</h1>
                 <p>Guess the word within 8 attempts to keep the
-                    programming world safe from Assembly!</p>
+                programming world safe from Assembly!</p>
             </header>
 
             <section className={gameStatusClass}>
