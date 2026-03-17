@@ -1,114 +1,114 @@
-# 🚐 VansLife – React Router Practice Project
+# 🧩 Assembly Endgame – Word Guessing Game
 
-A responsive van rental web app built while learning advanced routing concepts in React.
+An interactive word guessing game built with React, inspired by the classic Hangman concept.
+Players must guess the correct word before running out of attempts.
 
 ---
 
 ## 🔗 Overview
 
-VansLife is a multi-page application that allows users to browse vans, view details, and explore a host dashboard.
-The project focuses heavily on **modern routing patterns using React Router**.
+Assembly Endgame is a fun browser-based game where users guess letters to reveal a hidden word.
+The game provides visual feedback and tracks progress until the player either wins or loses.
 
 ---
 
 ## ✨ Features
 
-* 🏠 Home, About, and Vans listing pages
-* 🔍 Dynamic routing for individual van details
-* 🧭 Nested routes for host dashboard
-* 🧱 Layout-based architecture
-* ❌ Custom 404 (Not Found) page
-* 📱 Responsive UI
+* 🎯 Random word selection
+* ⌨️ Interactive keyboard input
+* ❌ Limited guesses system
+* 🟩 Correct letter reveal
+* 🔴 Incorrect guess tracking
+* 🏆 Win/Loss state detection
+* 🔁 Restart game functionality
 
 ---
 
 ## 🧠 Concepts Practiced
 
-* React Router (v6+)
-* Nested Routes & Layouts
-* Dynamic Routes (`:id`)
-* Route Params (`useParams`)
-* Query Params (`useSearchParams`)
-* Navigation (`Link`, `NavLink`)
-* Outlet & Layout components
+* React state management (`useState`)
+* Conditional rendering
+* Event handling
+* Derived state
+* Array & string manipulation
+* Component-based UI design
 
 ---
 
 ## 🛠️ Tech Stack
 
 * React
-* React Router
 * JavaScript (ES6+)
+* HTML
 * CSS
 
 ---
 
 ## 📁 Project Structure
 
-```
+```id="jhvndq"
 src/
   components/
-    Layout.jsx
-    HostLayout.jsx
-  pages/
-    Home.jsx
-    About.jsx
-    Vans.jsx
-    VanDetail.jsx
-    Host/
-      Dashboard.jsx
-      Income.jsx
-      Reviews.jsx
-      HostVans.jsx
-      HostVanDetail.jsx
-      HostVanInfo.jsx
-      HostVanPricing.jsx
-      HostVanPhotos.jsx
+    Header.jsx
+    Keyboard.jsx
+    Word.jsx
+    Status.jsx
+  App.jsx
+  words.js
 ```
 
 ---
 
 ## 🚀 Getting Started
 
-1. Clone the repo
+1. Clone the repository
 
-```bash
+```bash id="sj4v1l"
 git clone <your-repo-url>
 ```
 
 2. Install dependencies
 
-```bash
+```bash id="bct5o2"
 npm install
 ```
 
-3. Run the development server
+3. Run the app
 
-```bash
+```bash id="8u2swo"
 npm run dev
 ```
 
 ---
 
+## 🎮 How to Play
+
+* Guess letters using the on-screen keyboard
+* Each wrong guess reduces your remaining attempts
+* Reveal all letters before attempts run out to win
+* If attempts reach zero → game over
+
+---
+
 ## 📌 Learning Context
 
-This project was built as part of a structured learning path focused on becoming a full-stack developer.
-The main goal was to **understand routing deeply by building a real application**, not just following tutorials.
+This project was built as part of a structured learning journey in React.
+The focus was on **understanding state, logic flow, and user interaction in a real application**.
 
 ---
 
 ## 🔮 Future Improvements
 
-* Add authentication (host login)
-* Integrate backend (Firebase / Supabase)
-* Add booking functionality
-* Improve UI/UX
+* Add difficulty levels
+* Add timer mode
+* Track score across rounds
+* Improve animations and UI feedback
 
 ---
 
 ## 🙌 Acknowledgements
 
-Built as part of the Scrimba Full-Stack Developer Path.
+Built as part of the Scrimba Frontend / Full-Stack learning path.
 
 ---
 
